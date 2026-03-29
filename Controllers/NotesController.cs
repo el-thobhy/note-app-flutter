@@ -50,6 +50,7 @@ public class NotesController : ControllerBase
                 Title = n.Title,
                 Content = n.Content,
                 Color = n.Color,
+                IsDeleted = n.IsDeleted,
                 IsPinned = n.IsPinned,
                 IsArchived = n.IsArchived,
                 Tags = n.Tags.Select(t => t.Name).ToList(),
@@ -106,6 +107,7 @@ public class NotesController : ControllerBase
             Color = request.Color ?? "#FFFFFF",
             IsPinned = request.IsPinned,
             IsArchived = false,
+            IsDeleted = false,
             CreatedAt = DateTime.UtcNow,
             ModifiedAt = DateTime.UtcNow,
             Tags = request.Tags?.Select(t => new Tag { Id = Guid.NewGuid(), Name = t }).ToList()
@@ -257,6 +259,7 @@ public class NotesController : ControllerBase
             Title = note.Title,
             Content = note.Content,
             Color = note.Color,
+            IsDeleted = note.IsDeleted,
             IsPinned = note.IsPinned,
             IsArchived = note.IsArchived,
             Tags = note.Tags.Select(t => t.Name).ToList(),
