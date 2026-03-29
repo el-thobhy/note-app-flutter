@@ -110,7 +110,11 @@ var app = builder.Build();
 
 // Middleware pipeline
 app.UseSwagger();
-app.UseSwaggerUI();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Authentication API V1");
+    c.RoutePrefix = $"documentation"; // Set to "" untuk akses di root domain (https://domain.com/)
+});
 app.UseCors();
 
 // WAJIB: Authentication sebelum Authorization
