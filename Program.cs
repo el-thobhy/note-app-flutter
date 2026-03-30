@@ -75,7 +75,7 @@ builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo
     {
-        Title = "Authentication API",
+        Title = "Note app API",
         Version = "v1"
     });
 
@@ -112,7 +112,7 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Authentication API V1");
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Note App API V1");
     c.RoutePrefix = $"documentation"; // Set to "" untuk akses di root domain (https://domain.com/)
 });
 app.UseCors();
